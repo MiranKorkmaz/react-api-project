@@ -29,6 +29,7 @@ export default function HomePage() {
                 <Navbar /> 
             </div>
             <div>
+                <h2>Customers</h2>
                 {customerList && <CustomerList customer={customerList}/> }
             </div>
         </div>

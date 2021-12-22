@@ -1,7 +1,5 @@
 import React from 'react'
 
-
-
 export default function CustomerList(props) {
     return (
         <div>

@@ -7,7 +7,6 @@ import LoginPage from "./pages/LoginPage"
 import HomePage from "./pages/HomePage"
 import ProfilePage from "./pages/ProfilePage"
 import CustomerCreatePage from "./pages/CustomerCreatePage"
-import CustomerListPage from "./pages/CustomerListPage"
 
 
 function App() {
@@ -19,7 +18,6 @@ function App() {
           <Route path="/login" element={<LoginPage />} /> 
           <Route path="/home" element={<HomePage/>} />
           <Route path="/profile" element={<ProfilePage/>} />
-          <Route path="/customers" element={<CustomerListPage />} /> 
           <Route path="/customer/create" element={<CustomerCreatePage/>} />
         </Routes>
       </div>
