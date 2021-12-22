@@ -27,22 +27,29 @@ export default function LoginPage() {
     } 
     return (
         <div>
-            <form onSubmit={handleOnSubmit}>
-                <label for="email">Email</label>
-                <input 
-                    type="text"
-                    value={email}
-                    onChange={e => setEmail(e.target.value)}
-                    placeholder="Enter Email"
-                />
-                <label for="password">Password</label>
-                <input 
-                    type="password"
-                    value={password}
-                    onChange={e => setPassword(e.target.value)}
-                    placeholder="Enter Password"
-                />
+            <form onSubmit={handleOnSubmit} className="d-flex flex-column align-content-center">
+                <h2>Login</h2>
+                <div className="row mb-2 mt-2">
+                    <label for="email">Email</label>
+                    <input 
+                        type="text"
+                        value={email}
+                        onChange={e => setEmail(e.target.value)}
+                        placeholder="Enter Email"
+                    />
+                </div>
+                <div className="row mb-2 mt-2">
+                    <label for="password">Password</label>
+                    <input 
+                        type="password"
+                        value={password}
+                        onChange={e => setPassword(e.target.value)}
+                        placeholder="Enter Password"
+                    />
+                </div>
+                <div className="row mb-2 mt-4">
                 <button type="submit">Login</button>
+                </div>
             </form>
         </div>
     )

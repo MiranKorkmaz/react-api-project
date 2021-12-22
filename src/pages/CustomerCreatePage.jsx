@@ -52,8 +52,11 @@ export default function CustomerCreatePage() {
 
     return (
         <div>
-            <form onSubmit={handleOnSubmit}>
-                {renderInput("text", name, setName, "Name")}
+            <form onSubmit={handleOnSubmit} className="d-flex flex-column align-content-center">
+                <div className="mb-2">
+                    <label for="Name">Name</label>
+                    {renderInput("text", name, setName, "Name")}     
+                </div>
                 {renderInput("text", email, setEmail, "Email")}
                 {renderInput("tel", phoneNumber, setPhoneNumber, "Phone Number")}
                 {renderInput("text", orgNr, setOrgNr, "Organization Number")}
@@ -64,7 +67,7 @@ export default function CustomerCreatePage() {
                 <button type="submit">Create Customer</button>
             </form>
             {response && (
-                <p>{response.email[0]}</p>
+                <p>Your customer was successfully created!</p>
             )}
         </div>
     )

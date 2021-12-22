@@ -16,10 +16,12 @@ export default function MyPage() {
 
     return (
         <div>
-            <h1>My Page</h1>
+            <h2>Profile</h2>
             {myData && (
                 <>
-                    <h2>{myData.firstName} {myData.lastName}</h2>
+                    <p>
+                        Your name is {myData.firstName} {myData.lastName}
+                    </p>
                     <p>
                         Your email address is {myData.email}
                     </p>
