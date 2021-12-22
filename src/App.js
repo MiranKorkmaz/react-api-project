@@ -7,6 +7,7 @@ import LoginPage from "./pages/LoginPage"
 import HomePage from "./pages/HomePage"
 import ProfilePage from "./pages/ProfilePage"
 import CustomerCreatePage from "./pages/CustomerCreatePage"
+import CustomerDetailPage from "./pages/CustomerDetailPage"
 
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
           <Route path="/home" element={<HomePage/>} />
           <Route path="/profile" element={<ProfilePage/>} />
           <Route path="/customer/create" element={<CustomerCreatePage/>} />
+          <Route path="/home/:id" element={<CustomerDetailPage/>} />
         </Routes>
       </div>
     </div>
