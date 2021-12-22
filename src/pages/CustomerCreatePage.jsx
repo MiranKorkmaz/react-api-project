@@ -68,7 +68,7 @@ export default function CustomerCreatePage() {
                 {renderInput("text", reference, setReference, "Reference")}
                 {renderInput("text", paymentTerm, setPaymentTerm, "Payment Term")}
                 {renderInput("url", website, setWebsite, "Website")}
-                <button type="submit">Create Customer</button>
+                <button className="btn btn-primary" type="submit">Create Customer</button>
             </form>
             {response && (
                 <p>Your customer was successfully created!</p>

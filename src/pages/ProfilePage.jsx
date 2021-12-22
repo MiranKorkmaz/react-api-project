@@ -20,6 +20,7 @@ export default function MyPage() {
             <div className="container d-flex justify-content-center"> 
                 <Navbar /> 
             </div>
+            <div className="mt-5">
             <h2>Profile</h2>
             {myData && (
                 <>
@@ -31,6 +32,7 @@ export default function MyPage() {
                     </p>
                 </>
             )}
+            </div>
             
         </div>
     )

@@ -48,7 +48,7 @@ export default function LoginPage() {
                     />
                 </div>
                 <div className="row mb-2 mt-4">
-                <button type="submit">Login</button>
+                <button className="btn btn-primary" type="submit">Login</button>
                 </div>
             </form>
         </div>
