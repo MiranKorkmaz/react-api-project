@@ -6,6 +6,7 @@ import "bootstrap/dist/css/bootstrap.css"
 import LoginPage from "./pages/LoginPage"
 import HomePage from "./pages/HomePage"
 import ProfilePage from "./pages/ProfilePage"
+import CustomerCreatePage from "./pages/CustomerCreatePage"
 
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
         <Route path="/login" element={<LoginPage />} /> 
         <Route path="/home" element={<HomePage/>} />
         <Route path="/profile" element={<ProfilePage/>} />
+        <Route path="/customer/create" element={<CustomerCreatePage/>} />
       </Routes>
     </div>
   );
