@@ -32,7 +32,9 @@ export default function LoginPage() {
                 <div className="row mb-2 mt-2">
                     <label for="email">Email</label>
                     <input 
-                        type="text"
+                        required
+                        name="email"
+                        type="email"
                         value={email}
                         onChange={e => setEmail(e.target.value)}
                         placeholder="Enter Email"
@@ -41,7 +43,10 @@ export default function LoginPage() {
                 <div className="row mb-2 mt-2">
                     <label for="password">Password</label>
                     <input 
+                        required
+                        name="password"
                         type="password"
+                        minLength="8"
                         value={password}
                         onChange={e => setPassword(e.target.value)}
                         placeholder="Enter Password"
@@ -50,6 +55,7 @@ export default function LoginPage() {
                 <div className="row mb-2 mt-4">
                 <button className="btn btn-primary" type="submit">Login</button>
                 </div>
+                
             </form>
         </div>
     )

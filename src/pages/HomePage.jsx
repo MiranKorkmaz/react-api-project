@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react'
+import CustomerList from '../components/CustomerList';
 import Navbar from '../components/Navbar';
 
 export default function HomePage() {
@@ -26,6 +27,9 @@ export default function HomePage() {
         <div>
             <div className="container d-flex justify-content-center"> 
                 <Navbar /> 
+            </div>
+            <div>
+                {customerList && <CustomerList customer={customerList}/> }
             </div>
         </div>
     )
