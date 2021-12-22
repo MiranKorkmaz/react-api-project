@@ -1,4 +1,5 @@
 import React, {useState} from 'react'
+import Navbar from '../components/Navbar'
 
 export default function CustomerCreatePage() {
 
@@ -52,6 +53,9 @@ export default function CustomerCreatePage() {
 
     return (
         <div>
+            <div className="container d-flex justify-content-center"> 
+                <Navbar /> 
+            </div>
             <form onSubmit={handleOnSubmit} className="d-flex flex-column align-content-center">
                 <div className="mb-2">
                     <label for="Name">Name</label>

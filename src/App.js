@@ -7,16 +7,12 @@ import LoginPage from "./pages/LoginPage"
 import HomePage from "./pages/HomePage"
 import ProfilePage from "./pages/ProfilePage"
 import CustomerCreatePage from "./pages/CustomerCreatePage"
-import Navbar from "./components/Navbar"
 
 
 function App() {
   return (
 
     <div>
-      <div className="container d-flex justify-content-center"> 
-        <Navbar /> 
-      </div>
       <div className="container d-flex justify-content-center mt-5">
         <Routes>
           <Route path="/login" element={<LoginPage />} /> 

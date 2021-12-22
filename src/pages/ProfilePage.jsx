@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from 'react'
+import Navbar from '../components/Navbar'
 
 export default function MyPage() {
     const [myData, setMyData] = useState(null)
@@ -16,6 +17,9 @@ export default function MyPage() {
 
     return (
         <div>
+            <div className="container d-flex justify-content-center"> 
+                <Navbar /> 
+            </div>
             <h2>Profile</h2>
             {myData && (
                 <>

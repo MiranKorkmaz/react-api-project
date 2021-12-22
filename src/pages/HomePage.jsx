@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react'
+import Navbar from '../components/Navbar';
 
 export default function HomePage() {
     const [customerList, setCustomerList] = useState(null);
@@ -23,7 +24,9 @@ export default function HomePage() {
 
     return (
         <div>
-            
+            <div className="container d-flex justify-content-center"> 
+                <Navbar /> 
+            </div>
         </div>
     )
 }
