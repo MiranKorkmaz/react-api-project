@@ -1,24 +1,14 @@
 import React, {useState, useEffect} from "react";
 
-export default function ProductDetail(props) {
-  const [customerDetail, setCustomerDetail] = useState(null)
+export default function CustomerDetail({ customer }) {
 
-  useEffect(() => {
-    const url = "https://frebi.willandskill.eu/api/v1/customers/{id}/"
-    fetch(url)
-    .then(res => res.json())
-    .then( data => setCustomerDetail(data))
-  }, [])
 
   return (
     <div>
-      {props.id}
-      {customerDetail && (
-        <>
-          {customerDetail.name}
-        </>
-
-      )}
+      <p>Name: {customer.name}</p>
+      <p>Email: {customer.email}</p>
+      <p>Phone Number: {customer.phoneNumber}</p>
+      <p>Organization Number: {customer.orgNr}</p>
     </div>
   );
 }

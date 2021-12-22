@@ -1,9 +1,17 @@
 import React, {useState} from 'react'
 import Navbar from '../components/Navbar'
+import { useNavigate } from 'react-router-dom'
+import { Heading } from '../components/Heading'
 
 export default function CustomerCreatePage() {
+    const navigate = useNavigate() 
+
+    const [response, setResponse] = useState(null)
+    const [submitted, setSubmitted] = useState(false)
+    const [formErr, setFormErr] = useState("")
 
     const [name, setName] = useState("")
+
     const [email, setEmail] = useState("")
     const [phoneNumber, setPhoneNumber] = useState("")
     const [orgNr, setOrgNr] = useState("")
@@ -11,8 +19,6 @@ export default function CustomerCreatePage() {
     const [reference, setReference] = useState("")
     const [paymentTerm, setPaymentTerm] = useState("")
     const [website, setWebsite] = useState("")
-
-    const [response, setResponse] = useState(null)
 
     function renderInput(type, value, setValue, placeholder) {
         return (
@@ -25,12 +31,15 @@ export default function CustomerCreatePage() {
         )
     }
 
-    function handleOnSubmit(e) {
+
+    async function handleOnSubmit(e) {
         e.preventDefault()
         const url = "https://frebi.willandskill.eu/api/v1/customers/"
         const token = localStorage.getItem("JS3-webb21")
+
+
         const payload = {
-            name, 
+            name,
             email,
             phoneNumber,
             orgNr,
@@ -39,7 +48,16 @@ export default function CustomerCreatePage() {
             paymentTerm,
             website
         }
-        fetch(url, {
+        
+        for (const key in payload) {
+            if (payload[key] === "") {
+                setSubmitted(false) 
+                setFormErr(key + " should not be empty")
+                return;
+            }
+        }
+
+        const response = await fetch(url, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -47,8 +65,25 @@ export default function CustomerCreatePage() {
             },
             body: JSON.stringify(payload),
         })
-        .then(res => res.json())
-        .then(data => setResponse(data))
+
+        const data = response.json() 
+
+    
+        switch (response.status) {                
+            case 403:
+                setSubmitted(false) 
+                setFormErr(data) 
+                window.alert("You cannot have more than 10 customers")
+                break;
+
+            case 201:
+                navigate("/customer")
+                break;
+
+            default:
+                setSubmitted(false)
+                break;
+        }    
     }
 
     return (
@@ -56,23 +91,26 @@ export default function CustomerCreatePage() {
             <div className="container d-flex justify-content-center"> 
                 <Navbar /> 
             </div>
+            <Heading>
+            <h2>Create Customer</h2>
+            </Heading>
             <form onSubmit={handleOnSubmit} className="d-flex flex-column align-content-center">
-                <div className="mb-2">
-                    <label for="Name">Name</label>
-                    {renderInput("text", name, setName, "Name")}     
-                </div>
+                {renderInput("text", name, setName, "Name")}     
                 {renderInput("text", email, setEmail, "Email")}
                 {renderInput("tel", phoneNumber, setPhoneNumber, "Phone Number")}
                 {renderInput("text", orgNr, setOrgNr, "Organization Number")}
                 {renderInput("text", vatNr, setVatNr, "VAT Number")}
                 {renderInput("text", reference, setReference, "Reference")}
                 {renderInput("text", paymentTerm, setPaymentTerm, "Payment Term")}
-                {renderInput("url", website, setWebsite, "Website")}
-                <button className="btn btn-primary" type="submit">Create Customer</button>
+                {renderInput("url", website, setWebsite, "Website", )}
+                <button  className="btn btn-primary" type="submit">Create Customer</button>
             </form>
+
+            {formErr && <span>{formErr}</span> }
             {response && (
                 <p>Your customer was successfully created!</p>
             )}
+            
         </div>
     )
 }

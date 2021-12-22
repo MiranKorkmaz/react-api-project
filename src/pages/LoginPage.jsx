@@ -30,7 +30,7 @@ export default function LoginPage() {
             <form onSubmit={handleOnSubmit} className="d-flex flex-column align-content-center">
                 <h2>Login</h2>
                 <div className="row mb-2 mt-2">
-                    <label for="email">Email</label>
+                    <label htmlFor="email">Email</label>
                     <input 
                         required
                         name="email"
@@ -41,7 +41,7 @@ export default function LoginPage() {
                     />
                 </div>
                 <div className="row mb-2 mt-2">
-                    <label for="password">Password</label>
+                    <label htmlFor="password">Password</label>
                     <input 
                         required
                         name="password"

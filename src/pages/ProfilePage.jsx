@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react'
 import Navbar from '../components/Navbar'
+import { Heading } from '../components/Heading'
 
 export default function MyPage() {
     const [myData, setMyData] = useState(null)
@@ -21,7 +22,9 @@ export default function MyPage() {
                 <Navbar /> 
             </div>
             <div className="mt-5">
-            <h2>Profile</h2>
+            <Heading>
+                    <h2>Profile</h2>
+            </Heading>
             {myData && (
                 <>
                     <p>
