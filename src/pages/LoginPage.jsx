@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
 import { useNavigate } from 'react-router-dom'
+import { Heading } from '../components/Heading'
 
 export default function LoginPage() {
     const [email, setEmail] = useState("")
@@ -28,7 +29,9 @@ export default function LoginPage() {
     return (
         <div>
             <form onSubmit={handleOnSubmit} className="d-flex flex-column align-content-center">
+                <Heading>
                 <h2>Login</h2>
+                </Heading>
                 <div className="row mb-2 mt-2">
                     <label htmlFor="email">Email</label>
                     <input 

@@ -14,7 +14,7 @@ export default function CustomerCreatePage() {
 
     const [email, setEmail] = useState("")
     const [phoneNumber, setPhoneNumber] = useState("")
-    const [orgNr, setOrgNr] = useState("")
+    const [organisationNr, setOrganisationNr] = useState("")
     const [vatNr, setVatNr] = useState("")
     const [reference, setReference] = useState("")
     const [paymentTerm, setPaymentTerm] = useState("")
@@ -42,7 +42,7 @@ export default function CustomerCreatePage() {
             name,
             email,
             phoneNumber,
-            orgNr,
+            organisationNr,
             vatNr,
             reference,
             paymentTerm,
@@ -94,11 +94,11 @@ export default function CustomerCreatePage() {
             <Heading>
             <h2>Create Customer</h2>
             </Heading>
-            <form onSubmit={handleOnSubmit} className="d-flex flex-column align-content-center">
+            <form onSubmit={handleOnSubmit} className="d-flex flex-column align-content-center form-comtrol m-4">
                 {renderInput("text", name, setName, "Name")}     
                 {renderInput("text", email, setEmail, "Email")}
                 {renderInput("tel", phoneNumber, setPhoneNumber, "Phone Number")}
-                {renderInput("text", orgNr, setOrgNr, "Organization Number")}
+                {renderInput("text", organisationNr, setOrganisationNr, "Organization Number")}
                 {renderInput("text", vatNr, setVatNr, "VAT Number")}
                 {renderInput("text", reference, setReference, "Reference")}
                 {renderInput("text", paymentTerm, setPaymentTerm, "Payment Term")}
