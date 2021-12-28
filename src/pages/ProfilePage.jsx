@@ -1,6 +1,11 @@
 import React, {useEffect, useState} from 'react'
 import Navbar from '../components/Navbar'
 import { Heading } from '../components/Heading'
+import styled from 'styled-components'
+
+const Paragraph = styled.p`
+    margin-top: 2rem;
+`
 
 export default function MyPage() {
     const [myData, setMyData] = useState(null)
@@ -25,6 +30,7 @@ export default function MyPage() {
             <Heading>
                     <h2>Profile</h2>
             </Heading>
+            <Paragraph>
             {myData && (
                 <>
                     <p>
@@ -35,6 +41,7 @@ export default function MyPage() {
                     </p>
                 </>
             )}
+            </Paragraph>
             </div>
             
         </div>

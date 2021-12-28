@@ -23,7 +23,11 @@ export default function LoginPage() {
         .then(data => {
             const token = data.token
             localStorage.setItem("JS3-webb21", token)
+            if (token) {
             navigate("/home")
+        } else {
+            alert("Wrong credentials") 
+        }
         })
     } 
     return (

@@ -103,6 +103,7 @@ export default function CustomerCreatePage() {
                 {renderInput("text", reference, setReference, "Reference")}
                 {renderInput("text", paymentTerm, setPaymentTerm, "Payment Term")}
                 {renderInput("url", website, setWebsite, "Website", )}
+                <br/>
                 <button  className="btn btn-success" type="submit">Create Customer</button>
             </form>
 
