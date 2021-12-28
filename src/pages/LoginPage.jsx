@@ -26,7 +26,7 @@ export default function LoginPage() {
             if (token) {
             navigate("/home")
         } else {
-            alert("Wrong credentials") 
+            window.alert("Wrong credentials") 
         }
         })
     } 

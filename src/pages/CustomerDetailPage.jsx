@@ -27,18 +27,29 @@ export default function CustomerDetailPage() {
     })
   }, [])
 
+
     return (
         <div>
-            <div className="container d-flex justify-content-center"> 
-                <Navbar /> 
+            <div className="container d-flex justify-content-center">
+                <Navbar />
+            </div>
+            <div className="container d-flex justify-content-center mt-5">
+                <h2>Customer Detail Page</h2>
             </div>
             <Layout>
-
-            <div>
-                <h2>Customer Detail Page</h2>
-                <CustomerDetail customer={customerDetail} /> 
-            </div>
-        </Layout>
-      </div>
+                <div className="container">
+                    <div className="row">
+                        <div className="col-9">
+                            <CustomerDetail customer={customerDetail} />
+                        </div>
+                        <div className="col-3">
+                            <form>
+                                <input />
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </Layout>
+        </div>
     )
 }
