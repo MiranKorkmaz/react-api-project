@@ -17,9 +17,7 @@ export default function HomePage() {
             <h2>👋Welcome!</h2>
         </Heading>
         <Paragraph>
-            <p>
                 Good to see you here
-            </p>
         </Paragraph>
         </div>
     )

@@ -13,40 +13,48 @@ export default function CustomerDetail({ customer }) {
   const [email, setEmail] = useState("")
   const [phoneNumber, setPhoneNumber] = useState("")
 
-
   function handleOnSubmit(e) {
     e.preventDefault()
     const url = `https://frebi.willandskill.eu/api/v1/customers/${params.id}/`
     const token = localStorage.getItem("JS3-webb21")
-    const headers = {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${token}`
+    const payload = {
+      name, 
+      email, 
+      vatNr, 
+      reference, 
+      organisationNr, 
+      paymentTerm, 
+      website, 
+      phoneNumber
     }
-    const payload = {name, email, vatNr, reference, organisationNr, paymentTerm, website, phoneNumber}
+
+
     fetch(url, {
         method: "PATCH",
-        headers: headers,
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`
+      },
         body: JSON.stringify(payload)
     })
     .then(res => res.json())
-    .then(data => {
-        setName(data.name)
-        setEmail(data.email)
-        setVatNr(data.vatNR)
-        setReference(data.reference)
-        setOrganisationNr(data.organisationNr)
-        setPaymentTerm(data.paymentTerm)
-        setWebsite(data.website)
-        setPhoneNumber(data.phoneNumber)
+    .then(data => { 
+      setName(data.name)
+      setOrganisationNr(data.organisationNr)
+      setVatNr(data.vatNr)
+      setReference(data.setReference)
+      setPaymentTerm(data.paymentTerm)
+      setWebsite(data.website)
+      setEmail(data.email)
+      setPhoneNumber(data.phoneNumber)
     })
+  }
 
-}
-
-  function renderInput(type, customer, placeholder, setValue) {
+  function renderInput(type, value, placeholder, setValue) {
     return (
       <input
-        type={type}
-        value={customer}
+        type={type} 
+        value={value}
         placeholder={placeholder}
         onChange={e => setValue(e.target.value)}
       />
@@ -66,6 +74,7 @@ export default function CustomerDetail({ customer }) {
         <p>Website: <a href={customer.website} target="_blank">{customer.website}</a></p>
       </div>
       <div>
+        <h2>Edit Customer</h2>
         <form onSubmit={handleOnSubmit}>
             {renderInput("text", name, "Name", setName)}
             {renderInput("text", organisationNr, "Org Nr", setOrganisationNr)}
@@ -75,7 +84,8 @@ export default function CustomerDetail({ customer }) {
             {renderInput("url", website, "Website", setWebsite)}
             {renderInput("email", email, "Email", setEmail)}
             {renderInput("tel", phoneNumber, "Phone Nr", setPhoneNumber)}
-          <button type="submit">Update Information</button>
+            <br/>
+            <button className="btn btn-primary" type="submit">Update Information</button>
         </form>
       </div>
     </div>

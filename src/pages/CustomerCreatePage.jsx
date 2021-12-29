@@ -31,7 +31,6 @@ export default function CustomerCreatePage() {
         )
     }
 
-
     async function handleOnSubmit(e) {
         e.preventDefault()
         const url = "https://frebi.willandskill.eu/api/v1/customers/"

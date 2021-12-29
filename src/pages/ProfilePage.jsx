@@ -33,12 +33,8 @@ export default function MyPage() {
             <Paragraph>
             {myData && (
                 <>
-                    <p>
-                        Your name is {myData.firstName} {myData.lastName}
-                    </p>
-                    <p>
-                        Your email address is {myData.email}
-                    </p>
+                        Your name is {myData.firstName} {myData.lastName}.
+                        Your email address is {myData.email}.
                 </>
             )}
             </Paragraph>

@@ -33,15 +33,16 @@ export default function CustomerDetailPage() {
                 <Navbar />
             </div>
 
-            <div className="container d-flex justify-content-center">
-                <h2>Customer Detail Page</h2>
-            </div>
-
-            <Layout>
-                <div className="container d-flex justify-content-center">
+            <div className="container">
+                <div className="row">
+                    <div className="col-4"></div>
+                    <div className="col-6 mt-5">
+                    <h2>Customer Detail Page</h2>
                     <CustomerDetail customer={customerDetail} />
+                    </div>
+                    <div className="col-2"></div>
                 </div>
-            </Layout>
+            </div>
         </div>
     )
 }
